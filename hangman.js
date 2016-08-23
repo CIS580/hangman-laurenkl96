@@ -58,9 +58,24 @@ function guessLetter(elm) {
   // TODO: Determine if the letter is in the secret word,
   // if so, reveal it in the secretWordDiv, otherwise
   // add a part to our hangman
+  for(i = 0; i < secretWord.length; i++){
+    if(node == secretWord.charAt(i)){
+        blanks[i] = node;
+        drawBlanks();                  
+        }
+    }
+    drawStickMan(wrongGuesses + 1);    
+
 
   // TODO: Determine if the game is over, and if so,
   // let the player know if they have won or lost
+
+  if(wrongGuesses > 6){
+    html.push("You lost!");
+    }
+  if(blanks.indexOf('_') < 0){
+    html.push("You won!");
+    }
 }
 
 /**
